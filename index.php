@@ -114,32 +114,32 @@
 
     </div>
      <!-- footer -->
-     <footer class="bg-dark pt-5 pb-3 text-white">
+     <footer class="pt-5 pb-3 ">
         <div class="container">
             
             <div class="row">
-                <div class="navbar navbar-expand-lg navbar-light bg-dark rounded-bottom rounded-lg justify-content-between">
+                <div class="navbar navbar-expand-lg navbar-light rounded-bottom rounded-lg ">
                     <ul class="navbar-nav ml-auto">
                         <div class="col-sm-12 col-lg-6">
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#"> Services</a>
+                                <a class="nav-link" href="#"> Services</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link text-light " href="#">Products <span class="sr-only">(current)</span></a>
+                            <a class="nav-link " href="#">Products <span class="sr-only">(current)</span></a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Bookings</a>
+                            <a class="nav-link" href="#">Bookings</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Contact Us</a>
+                            <a class="nav-link" href="#">Contact Us</a>
                         </li>
                         </div>
                           <div class="col-sm-12 col-lg-6">
                               <li class="nav-item">
-                                <a class="nav-link text-light mx-1" href="#"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
+                                <a class="nav-link  mx-1" href="#"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link text-light mx-1" href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+                                <a class="nav-link mx-1" href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
                               </li>
 
                            </div>

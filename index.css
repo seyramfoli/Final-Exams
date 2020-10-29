@@ -15,3 +15,38 @@
     border-radius: 5%;
     width: inherit;
 }
+footer{
+    color: white;
+    background: #000;
+    width: 100%;
+    text-align: center;
+    animation:  color-change 10s ease-in-out infinite;
+    margin-top: 30px;
+}
+
+@keyframes color-change{
+    0%{
+        background: #000;
+        color: white;
+    }
+    16%{
+        background:#0079C4;
+    }
+    32%{
+        background:#FAAC86;
+    }
+    48%{
+        background:#E61F34;
+    }
+    64%{
+        background:#C71A2E;
+    }
+    80%{
+        background: #FFD63E;
+        color: black;
+    }
+    100%{
+        background: #FFD53B;
+        color: black;
+    }
+}
