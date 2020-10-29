@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between ">
     <a class="navbar-brand" href="#">Adleks Studio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -46,6 +46,50 @@
     <p>...</p>
   </div>
 </div>
+    
+        <div class="row">
+            
+        </div>
+     <!-- footer -->
+     <footer class="bg-dark pt-5 pb-3 text-white">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-sm-12 col-lg-6">
+                    <div class="navbar navbar-expand-lg navbar-light bg-dark rounded-bottom rounded-lg justify-content-between">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#"> Services</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light " href="#">Products <span class="sr-only">(current)</span></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Bookings</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Contact Us</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light mx-1" href="#"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light mx-1" href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+                          </li>
+                          </ul>
+
+                    </div>
+                    
+                </div>
+                
+     
+             
+            </div>
+            <div class="credits text-center mt-2">
+                <p>Made by Richard Kafui Anatsui &copy; 2020. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="bootstrap.min.js"></script>
 </body>
