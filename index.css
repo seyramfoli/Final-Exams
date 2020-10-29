@@ -1,0 +1,17 @@
+.product{
+    border: 2px solid rgb(114, 19, 48);
+    background-color: rgb(18, 54, 82);
+    border-radius: 5%;
+    padding: 2%;
+    margin: 20px;
+}
+.pMainText{
+    color: white;
+}
+.pRating{
+    color: #f1d554;
+}
+.product img{
+    border-radius: 5%;
+    width: inherit;
+}

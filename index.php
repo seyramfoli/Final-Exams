@@ -46,18 +46,81 @@
     <p>...</p>
   </div>
 </div>
-    
+    <div class="container">
         <div class="row">
-            
+            <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
+                <img src="./assets/frames/frames1.jpg" alt="">
+                <h3 class="pMainText">The First Picture Frame</h3>
+                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pRating">
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+            </h3>
+            </div>
+            <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
+                <img src="./assets/t-shirts/t-shirt1.jpg" alt="">
+                <h3 class="pMainText">The First Picture Frame</h3>
+                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pRating">
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+            </h3>
+            </div>
+            <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
+                <img src="./assets/frames/frames2.jpg" alt="">
+                <h3 class="pMainText">The First Picture Frame</h3>
+                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pRating">
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+            </h3>
+            </div>
         </div>
+        <div class="row">
+        <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
+                <img src="./assets/t-shirts/t-shirt2.jpg" alt="">
+                <h3 class="pMainText">The First Picture Frame</h3>
+                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pRating">
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+            </h3>
+            </div>
+            <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
+                <img src="./assets/frames/frames4.jpg" alt="">
+                <h3 class="pMainText">The First Picture Frame</h3>
+                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pRating">
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+                    <i class='fa fa-star-o' aria-hidden='true'></i>
+            </h3>
+            </div>
+        </div>
+
+    </div>
      <!-- footer -->
      <footer class="bg-dark pt-5 pb-3 text-white">
         <div class="container">
             
             <div class="row">
-                <div class="col-sm-12 col-lg-6">
-                    <div class="navbar navbar-expand-lg navbar-light bg-dark rounded-bottom rounded-lg justify-content-between">
-                        <ul class="navbar-nav ml-auto">
+                <div class="navbar navbar-expand-lg navbar-light bg-dark rounded-bottom rounded-lg justify-content-between">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="col-sm-12 col-lg-6">
                             <li class="nav-item">
                                 <a class="nav-link text-light" href="#"> Services</a>
                           </li>
@@ -69,16 +132,19 @@
                           </li>
                           <li class="nav-item">
                             <a class="nav-link text-light" href="#">Contact Us</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link text-light mx-1" href="#"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link text-light mx-1" href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
-                          </li>
-                          </ul>
+                        </li>
+                        </div>
+                          <div class="col-sm-12 col-lg-6">
+                              <li class="nav-item">
+                                <a class="nav-link text-light mx-1" href="#"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link text-light mx-1" href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+                              </li>
 
-                    </div>
+                           </div>
+                           
+                    </ul>
                     
                 </div>
                 
