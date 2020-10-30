@@ -7,6 +7,7 @@
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="signUp.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -40,6 +41,44 @@
     </div>
     </nav>
 
+    <div class="container sign-in">
+        <div class="row">
+            <div class="img-blks5 col-sm-6">
+                <img  class= "thumbnail" src="./assets/signup3.jpg" alt="">
+            </div>
+            <div class="col-sm-6">
+                <form>
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" id="fname" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" id="lname" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" required>
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                    <label for="pswd">Password</label>
+                    <input type="password" class="form-control" id="pswd">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPswd">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPswd">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
     
      <!-- footer -->
      <footer class="pt-5 pb-3 ">
