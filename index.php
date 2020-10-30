@@ -30,7 +30,7 @@
         </form>
         <ul class="navbar-nav mr-auto" >
         <li class="nav-item">
-            <a class="nav-link" href="#">Sign In <i class="fa fa-user" aria-hidden="true"></i></a>
+            <a class="nav-link" href="signIn.php">Sign In <i class="fa fa-user" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
@@ -62,8 +62,8 @@
             </div>
             <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
                 <img src="./assets/t-shirts/t-shirt1.jpg" alt="">
-                <h3 class="pMainText">The First Picture Frame</h3>
-                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pMainText">Nikin T-shirt</h3>
+                <h3 class="pMainText">$23.80</h3>
                 <h3 class="pRating">
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star' aria-hidden='true'></i>
@@ -74,8 +74,8 @@
             </div>
             <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
                 <img src="./assets/frames/frames2.jpg" alt="">
-                <h3 class="pMainText">The First Picture Frame</h3>
-                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pMainText">The Second Picture Frame</h3>
+                <h3 class="pMainText">$50.83</h3>
                 <h3 class="pRating">
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star' aria-hidden='true'></i>
@@ -88,8 +88,8 @@
         <div class="row">
         <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
                 <img src="./assets/t-shirts/t-shirt2.jpg" alt="">
-                <h3 class="pMainText">The First Picture Frame</h3>
-                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pMainText">Not-Today T-shirt</h3>
+                <h3 class="pMainText">$30.68</h3>
                 <h3 class="pRating">
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star' aria-hidden='true'></i>
@@ -100,8 +100,8 @@
             </div>
             <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
                 <img src="./assets/frames/frames4.jpg" alt="">
-                <h3 class="pMainText">The First Picture Frame</h3>
-                <h3 class="pMainText">$45.78</h3>
+                <h3 class="pMainText">Helvitca Picture Frame</h3>
+                <h3 class="pMainText">$76.34</h3>
                 <h3 class="pRating">
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star' aria-hidden='true'></i>
