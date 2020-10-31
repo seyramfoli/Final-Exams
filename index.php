@@ -33,7 +33,7 @@
             <a class="nav-link" href="signIn.php">Sign In <i class="fa fa-user" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            <a class="nav-link cart-figure" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"> 0</i></a>
         </li>
         </ul>
     </div>
@@ -59,6 +59,7 @@
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
             </h3>
+            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
             <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
                 <img src="./assets/t-shirts/t-shirt1.jpg" alt="">
@@ -71,6 +72,7 @@
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
             </h3>
+            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
             <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
                 <img src="./assets/frames/frames2.jpg" alt="">
@@ -83,6 +85,7 @@
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
             </h3>
+            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
         </div>
         <div class="row">
@@ -97,6 +100,7 @@
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
             </h3>
+            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
             <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
                 <img src="./assets/frames/frames4.jpg" alt="">
@@ -109,6 +113,7 @@
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
             </h3>
+            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
         </div>
 
@@ -148,7 +153,18 @@
                     
                 </div>
                 
-     
+            <script>
+            let clickedButtons = document.querySelectorAll(".cart-button");
+            let cartCount = document.querySelector('.cart-figure');
+            let cartCounter = 0;
+            for (let i = 0; i < clickedButtons.length; i++) {
+                clickedButtons[i].addEventListener('click',()=>{
+                    cartCounter++;
+                    cartCount.innerHTML= cartCounter;
+                })
+                
+            }
+            </script>
              
             </div>
             <div class="credits text-center mt-2">
