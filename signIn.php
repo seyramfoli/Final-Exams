@@ -64,7 +64,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
-                <h5><em>New User?</em> <button type="submit" class="btn btn-secondary" onclick="window.location.href='signUp.php';">Submit</button></h5>
+                <h5><em>New User?</em> <button type="submit" class="btn btn-secondary" onclick="window.location.href='signUp.php';">Sign Up Here</button></h5>
             </div>
         </div>
     </div>
