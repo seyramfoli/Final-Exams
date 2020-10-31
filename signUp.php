@@ -47,32 +47,32 @@
                 <img  class= "thumbnail" src="./assets/signup3.jpg" alt="">
             </div>
             <div class="col-sm-6">
-                <form>
+                <form action="register.php" method="post">
                 <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="fname" required>
+                    <input type="text" class="form-control" id="fname" name="fname" required>
                     
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" id="lname" required>
+                    <input type="text" class="form-control" id="lname" name="lname" required>
                     
                 </div>
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <input type="email" class="form-control" id="email" name="email" required>
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
                 <div class="form-group">
                     <label for="pswd">Password</label>
-                    <input type="password" class="form-control" id="pswd">
+                    <input type="password" class="form-control" id="pswd" name="pswd">
                 </div>
                 <div class="form-group">
                     <label for="confirmPswd">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPswd">
+                    <input type="password" class="form-control" id="confirmPswd" name="confirmPswd">
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                 </form>
             </div>
         </div>
