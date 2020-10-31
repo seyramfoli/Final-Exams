@@ -1,3 +1,8 @@
+<?php
+	require_once 'database.php';
+	require_once 'register.php';
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +35,29 @@
         </form>
         <ul class="navbar-nav mr-auto" >
         <li class="nav-item">
-            <a class="nav-link" href="signIn.php">Sign In <i class="fa fa-user" aria-hidden="true"></i></a>
+            <!-- <a class="nav-link" href="signIn.php"> -->
+            <?php
+					if(isset($_SESSION['sessionFname'])&&isset($_SESSION['sessionLname'])){
+						printf('Akwaaba, %s %s', $_SESSION['sessionFname'], $_SESSION['sessionLname']);
+						echo <<<_SIGNOUTITEM
+							<a id="sign-in" class="nav-link" href="logout.php">
+								Sign Out 
+							<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+						
+						_SIGNOUTITEM;
+
+					}else{
+						echo <<<_SIGNINITEM
+						<a id="sign-in" class="nav-link" href="signIn.php">
+							Sign In 
+						<i class="fa fa-user" aria-hidden="true"></i></a>
+						
+						_SIGNINITEM;
+
+						
+					}
+				?> 
+            <!-- <i class="fa fa-user" aria-hidden="true"></i></a> -->
         </li>
         <li class="nav-item">
             <a class="nav-link cart-figure" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"> 0</i></a>
