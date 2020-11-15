@@ -1,32 +1,11 @@
-.product{
-    border: 2px solid rgb(114, 19, 48);
-    background-color: rgb(18, 54, 82);
-    border-radius: 5%;
-    padding: 2%;
-    margin: 20px;
-}
-.pMainText{
-    color: white;
-}
-.pRating{
-    color: #f1d554;
-}
-.product img{
-    border-radius: 5%;
-    width: inherit;
-}
-
-.signIn{
-    margin-left: 20px;
-}
-
-footer{
+.subtotal{
     color: white;
     background: #000;
-    width: 100%;
-    text-align: center;
     animation:  color-change 10s ease-in-out infinite;
-    margin-top: 30px;
+    border-radius: 5%;
+    max-width: 20%;
+    margin-left: 20%;
+    margin-right: 10%;
 }
 
 @keyframes color-change{

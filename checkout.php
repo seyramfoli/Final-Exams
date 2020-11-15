@@ -11,6 +11,7 @@
     <title>Adleks Studio</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="checkout.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -34,7 +35,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
         <ul class="navbar-nav mr-auto" >
-        <li class="nav-item signIn">
+        <li class="nav-item signin">
             <!-- <a class="nav-link" href="signIn.php"> -->
             <?php
 					if(isset($_SESSION['sessionFname'])&&isset($_SESSION['sessionLname'])){
@@ -66,87 +67,34 @@
     </div>
     </nav>
 
-    <div class="carousel-item">
-  <img src="..." alt="...">
-  <div class="carousel-caption d-none d-md-block">
-    <h5>...</h5>
-    <p>...</p>
-  </div>
-</div>
-    <div class="container">
-        <div class="row">
-            <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
-                <img src="./assets/frames/frames1.jpg" alt="">
-                <h3 class="pMainText">The First Picture Frame</h3>
-                <h3 class="pMainText">$45.78</h3>
-                <h3 class="pRating">
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
-            </div>
-            <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
-                <img src="./assets/t-shirts/t-shirt1.jpg" alt="">
-                <h3 class="pMainText">Nikin T-shirt</h3>
-                <h3 class="pMainText">$23.80</h3>
-                <h3 class="pRating">
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
-            </div>
-            <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
-                <img src="./assets/frames/frames2.jpg" alt="">
-                <h3 class="pMainText">The Second Picture Frame</h3>
-                <h3 class="pMainText">$50.83</h3>
-                <h3 class="pRating">
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
-            </div>
-        </div>
-        <div class="row">
-        <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
-                <img src="./assets/t-shirts/t-shirt2.jpg" alt="">
-                <h3 class="pMainText">Not-Today T-shirt</h3>
-                <h3 class="pMainText">$30.68</h3>
-                <h3 class="pRating">
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
-            </div>
-            <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
-                <img src="./assets/frames/frames4.jpg" alt="">
-                <h3 class="pMainText">Helvitca Picture Frame</h3>
-                <h3 class="pMainText">$76.34</h3>
-                <h3 class="pRating">
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-                    <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
-            </div>
-        </div>
+    <div class="row">
+    <div class="col-sm-6 cart-products">
+    <?php
+        if(isset($_SESSION['sessionFname'])){
+            echo '<h1 class="text-center font-weight-bold">';
+            printf("%s's Cart", $_SESSION['sessionFname']);
+            echo '</h1>';
 
+			}else{
+				echo <<<_NOCART
+					<h1 class="text-centerfont-weight-bold ">Your Cart</h1>
+						
+				_NOCART;
+
+						
+        }
+	?> 
+    
     </div>
-     <!-- footer -->
-     <footer class="pt-5 pb-3 ">
+    <div class="col-sm-6 subtotal">
+        Subtotal: $
+        <br><br>
+        <div class="btn btn-secondary">Proceed to Payment</div>
+    </div>
+    </div>
+
+ <!-- footer -->
+ <footer class="pt-5 pb-3 ">
         <div class="container">
             
             <div class="row">
@@ -180,7 +128,7 @@
                     
                 </div>
                 
-            <script>
+            <!-- <script>
             let clickedButtons = document.querySelectorAll(".cart-button");
             let cartCount = document.querySelector('.cart-figure');
             let cartCounter = 0;
@@ -191,7 +139,7 @@
                 })
                 
             }
-            </script>
+            </script> -->
              
             </div>
             <div class="credits text-center mt-2">
