@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
         header("Location: signIn.php?error=emptyfields");
         exit();
     }else{
-        $sql="select * from customer where email = ?";
+        $sql="select * from customers where email = ?";
         $stmt= mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql)){
 

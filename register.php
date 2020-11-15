@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
         header("Location: signUp.php?error=passworddonotmatch&email=".$email);
         exit();
     }else{
-        $sql = "select email from customer where email = ?";
+        $sql = "select email from customers where email = ?";
         $stmt= mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
             header("Location: signUp.php?error=sqlerror0");
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
                 header("Location: signUp.php?error=usernametaken");
                 exit();
             }else{
-                $sql= "insert into customer(fname, lname, email, password) values (?, ?, ?, ?)";
+                $sql= "insert into customers(fname, lname, email, password) values (?, ?, ?, ?)";
                 $stmt= mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
                     header("Location: signUp.php?error=sqlerror1");
