@@ -4,7 +4,7 @@
 $dbHost= '127.0.0.1';
 $dbUser= 'root';
 $dbPass = '';
-$dbName = 'rka2022';
+$dbName = 'finalexam_84422022';
 
 //connection to databse
 $conn = mysqli_connect($dbHost,$dbUser, $dbPass,$dbName);
