@@ -60,7 +60,7 @@
             <!-- <i class="fa fa-user" aria-hidden="true"></i></a> -->
         </li>
         <li class="nav-item">
-            <a class="nav-link cart-figure" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"> 0</i></a>
+            <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"> <span class="cart-figure">0</span></i></a>
         </li>
         </ul>
     </div>
