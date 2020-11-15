@@ -74,7 +74,7 @@
   </div>
 </div>
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
                 <img src="./assets/frames/frames1.jpg" alt="">
                 <h3 class="pMainText">The First Picture Frame</h3>
@@ -85,8 +85,8 @@
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
+                </h3>
+                <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
             <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
                 <img src="./assets/t-shirts/t-shirt1.jpg" alt="">
@@ -98,8 +98,8 @@
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
+                </h3>
+                <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
             <div class="img-blks5 col-sm-12 col-lg-3 text-center product">
                 <img src="./assets/frames/frames2.jpg" alt="">
@@ -111,12 +111,12 @@
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
+                </h3>
+                <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
         </div>
         <div class="row">
-        <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
+            <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
                 <img src="./assets/t-shirts/t-shirt2.jpg" alt="">
                 <h3 class="pMainText">Not-Today T-shirt</h3>
                 <h3 class="pMainText">$30.68</h3>
@@ -126,8 +126,8 @@
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
+                </h3>
+                <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
             <div class="img-blks5 col-sm-12 col-lg-4 text-center product">
                 <img src="./assets/frames/frames4.jpg" alt="">
@@ -139,12 +139,93 @@
                     <i class='fa fa-star' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
                     <i class='fa fa-star-o' aria-hidden='true'></i>
-            </h3>
-            <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
+                </h3>
+                <button type="button" class="btn btn-warning cart-button">Add To Cart</button>
             </div>
-        </div>
+        </div> -->
+
+        
+        <?php
+            $custId=$_SESSION['sessionId'];
+            $count=0;
+            $sql="select * from products";
+            $stmt= mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt,$sql)){
+                echo 'sql error 1';
+                exit();
+            }
+            else{
+                mysqli_stmt_execute($stmt);
+                $result=mysqli_stmt_get_result($stmt);
+                echo '<div class="row">';
+                while($row=mysqli_fetch_array($result)){
+                    if(!empty($row)){
+                        $pId= $row['productID'];
+                        $pName= $row['pName'];
+                        $pPrice= $row['price'];
+                        $pRating= $row['rating'];
+                        $pImage= $row['image'];
+                    }
+                    $count+=1;
+                    if($count%3!=0){
+
+                        echo '<div class="img-blks5 col-sm-12 col-lg-4 text-center product">';
+                        echo '<img src="./assets/productImages/'.$pImage.'" />';
+                        echo '<h3 class="pMainText pName">'.$pName.'</h3>';
+                             echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
+                             echo '<h3 class="pRating"';
+                             for ($i=0; $i <= $pRating; $i++) { 
+                               # code...
+                              echo "<i class='fa fa-star' aria-hidden='true'></i>";
+              
+                             }
+                             if ($pRating< 5) {
+                               # code...
+                              for($i=0; $i < 5-$pRating; $i++){
+                                echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+              
+                              }
+                             }
+                             echo '</h3>';
+                             echo '<button type="button" class="btn btn-success buy-button">Add To Cart ('.$pId.')</button>';
+                             echo '</div>';
+                    }
+                    else{
+                        echo '<div class="img-blks5 col-sm-12 col-lg-4 text-center product">';
+                        echo '<img src="./assets/productImages/'.$pImage.'" />';
+                        echo '<h3 class="pMainText pName">'.$pName.'</h3>';
+                             echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
+                             echo '<h3 class="pRating"';
+                             for ($i=0; $i <= $pRating; $i++) { 
+                               # code...
+                              echo "<i class='fa fa-star' aria-hidden='true'></i>";
+              
+                             }
+                             if ($pRating< 5) {
+                               # code...
+                              for($i=0; $i < 5-$pRating; $i++){
+                                echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+              
+                              }
+                             }
+                             echo '</h3>';
+                             echo '<button type="button" class="btn btn-success buy-button">Add To Cart ('.$pId.')</button>';
+                             echo '</div>';
+                        echo '</div>';
+                        echo '<div class="row">';
+                    }
+                }
+            }
+
+        ?>
+
 
     </div>
+
+
+
+    
+
      <!-- footer -->
      <footer class="pt-5 pb-3 ">
         <div class="container">
