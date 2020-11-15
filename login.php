@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
                     exit();
                 }elseif(passCheck==true){
                     session_start();
-                    $_SESSION['sessionId']=$row['CID'];
+                    $_SESSION['sessionId']=$row['customerID'];
                     $_SESSION['sessionEmail']=$row['email'];
                     $_SESSION['sessionFname']=$row['fname'];
                     $_SESSION['sessionLname']=$row['lname'];
