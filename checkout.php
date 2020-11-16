@@ -83,6 +83,70 @@
 
 						
         }
+
+        $custId=$_SESSION['sessionId'];
+        // echo $custId;
+        $products=[];
+        $sql="select productID from products_customer where customerID=".$custId;
+        $stmt= mysqli_stmt_init($conn);
+        // echo 'connection worked';
+        if(!mysqli_stmt_prepare($stmt,$sql)){
+            echo 'sql error1';
+          // header("Location: cust_welcome.php?error=sqlerror0");
+          exit();
+        }else{
+          // mysqli_stmt_bind_param($stmt, "s");
+            mysqli_stmt_execute($stmt);
+            $result= mysqli_stmt_get_result($stmt);
+            while($row=mysqli_fetch_array($result)){
+              array_push($products,$row['productID']);
+            }
+          }
+
+          for($i=0;$i<sizeof($products);$i++){
+              $prodId=$products[$i];
+              $sql="select * from products where productID=".$prodId;
+              $stmt= mysqli_stmt_init($conn);
+              if(!mysqli_stmt_prepare($stmt,$sql)){
+               echo 'sql error2';
+                 //  header("Location: cust_welcome.php?error=sqlerror2");
+                  exit();
+                }else{
+                  // mysqli_stmt_bind_param($stmt, "s");
+                  mysqli_stmt_execute($stmt);
+                  $result= mysqli_stmt_get_result($stmt);
+                  while($row=mysqli_fetch_array($result)){
+                    if(!empty($row))
+                    $pId=$row['productID'];
+                    $pName=$row['pName'];
+                    $pPrice=$row['price'];
+                    $pRating=$row['rating'];
+                    $pImage=$row['image'];
+                    
+                    echo  '<div class="img-blks5 col-sm-12 text-center product">';
+                    echo '<img src="./assets/productImages/'.$pImage .'" />';
+                    echo '<h3 class="pMainText pName">'.$pName.'</h3>';
+                    echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
+                    echo '<h3 class="pRating"';
+                    for ($i=0; $i <= $pRating; $i++) { 
+                      # code...
+                     echo "<i class='fa fa-star' aria-hidden='true'></i>";
+     
+                    }
+                    if ($pRating< 5) {
+                      # code...
+                     for($i=0; $i < 5-$pRating; $i++){
+                       echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+     
+                     }
+                    }
+                    echo '</h3>';
+                    echo '<button type="button" class="btn btn-success cart-button">Remove from CArt ('.$pId.')</button>';
+                    echo '</div>';
+                  }
+                }
+              
+            }
 	?> 
     
     </div>
