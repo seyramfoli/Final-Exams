@@ -146,7 +146,6 @@
 
         
         <?php
-            $custId=$_SESSION['sessionId'];
             $count=0;
             $sql="select * from products";
             $stmt= mysqli_stmt_init($conn);
@@ -177,7 +176,7 @@
                              for ($i=0; $i <= $pRating; $i++) { 
                                # code...
                               echo "<i class='fa fa-star' aria-hidden='true'></i>";
-              
+                              
                              }
                              if ($pRating< 5) {
                                # code...
@@ -185,9 +184,9 @@
                                 echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
               
                               }
-                             }
+                            }
                              echo '</h3>';
-                             echo '<button type="button" class="btn btn-success buy-button">Add To Cart ('.$pId.')</button>';
+                             echo '<button type="button" class="btn btn-success cart-button">Add To Cart ('.$pId.')</button>';
                              echo '</div>';
                     }
                     else{
@@ -202,22 +201,22 @@
               
                              }
                              if ($pRating< 5) {
-                               # code...
+                                 # code...
                               for($i=0; $i < 5-$pRating; $i++){
                                 echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
               
                               }
                              }
                              echo '</h3>';
-                             echo '<button type="button" class="btn btn-success buy-button">Add To Cart ('.$pId.')</button>';
+                             echo '<button type="button" class="btn btn-success cart-button">Add To Cart ('.$pId.')</button>';
                              echo '</div>';
-                        echo '</div>';
-                        echo '<div class="row">';
+                             echo '</div>';
+                             echo '<div class="row">';
+                            }
+                        }
                     }
-                }
-            }
 
-        ?>
+                    ?>
 
 
     </div>
@@ -262,6 +261,24 @@
                 </div>
                 
             <script>
+            function createCookie(name, value, days) { 
+                var expires; 
+                  
+                if (days) { 
+                    var date = new Date(); 
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); 
+                    expires = "; expires=" + date.toGMTString(); 
+                } 
+                else { 
+                    expires = ""; 
+                } 
+                  
+                document.cookie = escape(name) + "=" +  
+                    escape(value) + expires + "; path=/"; 
+            } 
+            function deleteCookie(name) {
+                createCookie({name: name, value: "", seconds: 1});
+            }
             let clickedButtons = document.querySelectorAll(".cart-button");
             let cartCount = document.querySelector('.cart-figure');
             let cartCounter = 0;
@@ -269,6 +286,41 @@
                 clickedButtons[i].addEventListener('click',()=>{
                     cartCounter++;
                     cartCount.innerHTML= cartCounter;
+                    let text= event.target.innerText;
+                    if(text.length==15){
+                        let id1=text.substr(13,1);
+                        console.log(id1);
+                        createCookie("prodId", id1,"10");
+                        
+                    }
+                    else{
+                        let rem = text.length-14;
+                        //  let last= 12+rem;
+                        let id = text.substr(13,rem);
+                        console.log(id);
+                        createCookie("prodId", id,"10");
+                    }
+                    <?php
+                    // echo $_COOKIE['prodId'];
+                        if(isset($_SESSION['sessionId'])&&isset($_COOKIE['prodId'])){
+                            $custId=$_SESSION['sessionId'];
+                            $prodId=$_COOKIE['prodId'];
+                            
+                            $sql="insert into products_customer(productID, customerID) values(?,?);";
+                            $stmt= mysqli_stmt_init($conn);
+                            if(!mysqli_stmt_prepare($stmt,$sql)){
+                                echo 'sql error4';
+                                // header("Location: sell_welcome.php?error=sqlerror1");
+                                exit();
+                            }else{
+                                mysqli_stmt_bind_param($stmt, "ss", $prodId,$custId);
+                                mysqli_stmt_execute($stmt);
+                                
+                                    
+                            }
+                        }
+                    ?>
+                deleteCookie('prodId');
                 })
                 
             }
