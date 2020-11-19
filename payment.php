@@ -27,7 +27,7 @@
             <a class="nav-link" href="index.php">Home <i class="fa fa-home" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Orders <i class="fa fa-clock-o" aria-hidden="true"></i></a>
+            <a class="nav-link" href="orders.php">Orders <i class="fa fa-clock-o" aria-hidden="true"></i></a>
         </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
