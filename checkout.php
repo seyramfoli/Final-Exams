@@ -124,9 +124,14 @@
                     $pImage=$row['image'];
                     
                     echo '<div class="container">';
-                    echo  '<div class="img-blks5 col-sm-12 text-center product">';
-                    echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
+                    
+                    echo  '<div class="img-blks5 col-sm-12 text-center product row">';
+                    echo '<div class = "col-lg-6"';
                     echo '<img src="./assets/productImages/'.$pImage .'" />';
+
+                    echo '</div>';
+                    echo '<div class = "col-lg-6"';
+                    echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
                     echo '<h3 class="pMainText pName">'.$pName.'</h3>';
                     echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
                     echo '<h3 class="pRating"';
@@ -144,7 +149,11 @@
                     }
                     echo '</h3>';
                     echo '<button type="button" class="btn btn-success cart-button" onclick="removeCart(this)">Remove from Cart </button>';
+
                     echo '</div>';
+
+                    echo '</div>';
+
                     echo '</div>';
                   }
                 }
@@ -154,7 +163,7 @@
     
     </div>
     <div class="col-sm-6 subtotal">
-        Subtotal: $
+        Subtotal: $ <span class="priceTotal"></span>
         <br><br>
         <div class="btn btn-secondary">Proceed to Payment</div>
     </div>
