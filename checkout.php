@@ -123,6 +123,7 @@
                     $pRating=$row['rating'];
                     $pImage=$row['image'];
                     
+                    echo '<div class="container">';
                     echo  '<div class="img-blks5 col-sm-12 text-center product">';
                     echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
                     echo '<img src="./assets/productImages/'.$pImage .'" />';
@@ -143,6 +144,7 @@
                     }
                     echo '</h3>';
                     echo '<button type="button" class="btn btn-success cart-button" onclick="removeCart(this)">Remove from Cart </button>';
+                    echo '</div>';
                     echo '</div>';
                   }
                 }
