@@ -33,9 +33,9 @@ if(isset($_POST['add'])){
             //Create new session variable
             $_SESSION['cart'][0]=$item_array;
             print_r($_SESSION['cart']);
-            header("Location:index.php?added1stItem");
+            // header("Location:index.php?added1stItem");
         }
-        
+
         $sql="insert into products_customer(productID, customerID) values(?,?);";
         $stmt= mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -45,7 +45,7 @@ if(isset($_POST['add'])){
         }else{
             mysqli_stmt_bind_param($stmt, "ss", $prodId,$custId);
             mysqli_stmt_execute($stmt);
-            echo "<script> alert('This product is already added') </script>";
+            echo "<script> alert('This product has been added') </script>";
             echo "<script>window.location= 'index.php'</script>";
                 
         }
