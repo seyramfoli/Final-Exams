@@ -138,6 +138,7 @@
                   
                   echo  '<div class="img-blks5 col-sm-12 text-center product row">';
                   echo '<div class = "col-lg-6">';
+                  echo '<form action= "cart_remove.php" method= "post">';
                   echo '<img src="./assets/productImages/'.$pImage .'" />';
   
                   echo '</div>';
@@ -164,6 +165,7 @@
                   echo '</div>';
   
                   echo '</div>';
+                  echo '</form>';
   
                   echo '</div>';
                 }
