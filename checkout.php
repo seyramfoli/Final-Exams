@@ -102,63 +102,63 @@
               array_push($products,$row['productID']);
             }
           }
-
-          for($i=0;$i<sizeof($products);$i++){
-              $prodId=$products[$i];
-              $sql="select * from products where productID=".$prodId;
-              $stmt= mysqli_stmt_init($conn);
-              if(!mysqli_stmt_prepare($stmt,$sql)){
-               echo 'sql error2';
-                 //  header("Location: cust_welcome.php?error=sqlerror2");
-                  exit();
-                }else{
-                  // mysqli_stmt_bind_param($stmt, "s");
-                  mysqli_stmt_execute($stmt);
-                  $result= mysqli_stmt_get_result($stmt);
-                  while($row=mysqli_fetch_array($result)){
-                    if(!empty($row))
-                    $pId=$row['productID'];
-                    $pName=$row['pName'];
-                    $pPrice=$row['price'];
-                    $pRating=$row['rating'];
-                    $pImage=$row['image'];
-                    
-                    echo '<div class="container">';
-                    
-                    echo  '<div class="img-blks5 col-sm-12 text-center product row">';
-                    echo '<div class = "col-lg-6"';
-                    echo '<img src="./assets/productImages/'.$pImage .'" />';
-
-                    echo '</div>';
-                    echo '<div class = "col-lg-6"';
-                    echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
-                    echo '<h3 class="pMainText pName">'.$pName.'</h3>';
-                    echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
-                    echo '<h3 class="pRating"';
-                    for ($i=0; $i <= $pRating; $i++) { 
-                      # code...
-                     echo "<i class='fa fa-star' aria-hidden='true'></i>";
-     
-                    }
-                    if ($pRating< 5) {
-                      # code...
-                     for($i=0; $i < 5-$pRating; $i++){
-                       echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
-     
-                     }
-                    }
-                    echo '</h3>';
-                    echo '<button type="button" class="btn btn-success cart-button" onclick="removeCart(this)">Remove from Cart </button>';
-
-                    echo '</div>';
-
-                    echo '</div>';
-
-                    echo '</div>';
+          
+          foreach($products as $prodId){
+            $sql="select * from products where productID=".$prodId;
+            $stmt= mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt,$sql)){
+             echo 'sql error2';
+               //  header("Location: cust_welcome.php?error=sqlerror2");
+                exit();
+              }else{
+                // mysqli_stmt_bind_param($stmt, "s");
+                mysqli_stmt_execute($stmt);
+                $result= mysqli_stmt_get_result($stmt);
+                while($row=mysqli_fetch_array($result)){
+                  if(!empty($row))
+                  $pId=$row['productID'];
+                  $pName=$row['pName'];
+                  $pPrice=$row['price'];
+                  $pRating=$row['rating'];
+                  $pImage=$row['image'];
+                  
+                  echo '<div class="container">';
+                  
+                  echo  '<div class="img-blks5 col-sm-12 text-center product row">';
+                  echo '<div class = "col-lg-6"';
+                  echo '<img src="./assets/productImages/'.$pImage .'" />';
+  
+                  echo '</div>';
+                  echo '<div class = "col-lg-6"';
+                  echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
+                  echo '<h3 class="pMainText pName">'.$pName.'</h3>';
+                  echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
+                  echo '<h3 class="pRating"';
+                  for ($i=0; $i <= $pRating; $i++) { 
+                    # code...
+                   echo "<i class='fa fa-star' aria-hidden='true'></i>";
+   
                   }
+                  if ($pRating< 5) {
+                    # code...
+                   for($i=0; $i < 5-$pRating; $i++){
+                     echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+   
+                   }
+                  }
+                  echo '</h3>';
+                  echo '<button type="button" class="btn btn-success cart-button" onclick="removeCart(this)">Remove from Cart </button>';
+  
+                  echo '</div>';
+  
+                  echo '</div>';
+  
+                  echo '</div>';
                 }
-              
-            }
+              }
+
+          }
+          
 	?> 
     
     </div>

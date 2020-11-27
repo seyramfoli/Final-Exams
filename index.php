@@ -1,7 +1,10 @@
 <?php
 	require_once 'database.php';
-	require_once 'register.php';
-	session_start();
+    require_once 'register.php';
+    // include_once 'cart_add.php';
+    session_start();
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +63,18 @@
             <!-- <i class="fa fa-user" aria-hidden="true"></i></a> -->
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="checkout.php"><i class="fa fa-shopping-cart" aria-hidden="true"> <span class="cart-figure">0</span></i></a>
+            <a class="nav-link" href="checkout.php"><i class="fa fa-shopping-cart" aria-hidden="true"> 
+            <?php
+                if(isset($_SESSION['cart'])){
+                    $cart_num= count($_SESSION['cart']);
+                    echo '<span class="cart-figure">'.$cart_num.'</span>';
+                }
+                else{
+                    echo '<span class="cart-figure">0</span>';
+                }
+
+            ?>
+            </i></a>
         </li>
         </ul>
     </div>
@@ -77,6 +91,12 @@
         
         
         <?php
+        // if(isset($_SESSION['cart'])){
+        //     $cart_item_id= array_column($_SESSION['cart'], "buyId");
+        //     echo 'it worked';
+        //     print_r($_SESSION['item_id']);
+        //     header("Location:index.php?addedNextItem");
+        // }
             $count=0;
             $sql="select * from products";
             $stmt= mysqli_stmt_init($conn);
@@ -98,7 +118,7 @@
                     }
                     $count+=1;
                     if($count%3!=0){
-
+                        echo '<form action= "cart_add.php" method= "post">';
                         echo '<div class="img-blks5 col-sm-12 col-lg-4 text-center product">';
                         echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
                         echo '<img src="./assets/productImages/'.$pImage.'" />';
@@ -118,10 +138,12 @@
                               }
                             }
                              echo '</h3>';
-                             echo '<button type="button" class="btn btn-success cart-button" onclick="addCart(this)">Add To Cart </button>';
+                             echo '<button type="submit" class="btn btn-success cart-button" name="add" onclick="addCart(this)">Add To Cart </button>';
                              echo '</div>';
+                             echo '</form>';
                     }
                     else{
+                        echo '<form action= "cart_add.php" method= "post">';
                         echo '<div class="img-blks5 col-sm-12 col-lg-4 text-center product">';
                         echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
                         echo '<img src="./assets/productImages/'.$pImage.'" />';
@@ -141,14 +163,18 @@
                               }
                              }
                              echo '</h3>';
-                             echo '<button type="button" class="btn btn-success cart-button" onclick="addCart(this)">Add To Cart </button>';
+                             echo '<button type="submit" class="btn btn-success cart-button" name="add" onclick="addCart(this)">Add To Cart </button>';
                              echo '</div>';
                              echo '</div>';
+                             echo '</form>';
                              echo '<div class="row">';
                             }
                         }
+                        if($count%3!=0){
+                            echo '</div>';
+                        }
                     }
-
+                    
                     ?>
 
 
@@ -200,7 +226,7 @@
             </div>
         </div>
     </footer>
-                             <script>
+                        <!-- <script>
                              function createCookie(name, value, days) { 
                                  var expires; 
                                    
@@ -230,36 +256,14 @@
                                      clickedButtons[i].addEventListener('click',()=>{
                                          cartCounter++;
                                          cartCount.innerHTML= cartCounter;
-                                     <?php
-                                     // echo $_COOKIE['prodId'];
-                                         if(isset($_SESSION['sessionId'])&&isset($_COOKIE['prodId'])){
-                                             $custId=$_SESSION['sessionId'];
-                                             $prodId=$_COOKIE['prodId'];
-                                             
-                                             $sql="insert into products_customer(productID, customerID) values(?,?);";
-                                             $stmt= mysqli_stmt_init($conn);
-                                             if(!mysqli_stmt_prepare($stmt,$sql)){
-                                                 echo 'sql error4';
-                                                 // header("Location: sell_welcome.php?error=sqlerror1");
-                                                 exit();
-                                             }else{
-                                                 mysqli_stmt_bind_param($stmt, "ss", $prodId,$custId);
-                                                 mysqli_stmt_execute($stmt);
-                                                 
-                                                     
-                                             }
-                                         }
-                                         else{
-                                             echo 'alert("Pls sign in")';
-                                         }
-                                     ?>
+                                   
                                      deleteCookie('prodId');
                                      })
                                  }
                                          
                              }
                              
-                             </script>
+                             </script>  -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="bootstrap.min.js"></script>
 </body>
