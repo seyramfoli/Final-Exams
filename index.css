@@ -16,6 +16,10 @@
     width: inherit;
 }
 
+.pName {
+    font-size: x-large;
+}
+
 .signIn{
     margin-left: 20px;
 }

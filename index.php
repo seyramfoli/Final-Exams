@@ -122,7 +122,7 @@
                         echo '<div class="img-blks5 col-sm-12 col-lg-4 text-center product">';
                         echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
                         echo '<img src="./assets/productImages/'.$pImage.'" />';
-                        echo '<h3 class="pMainText pName">'.$pName.'</h3>';
+                        echo '<strong><h3 class="pMainText pName">'.$pName.'</h3></strong>';
                         echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
                         echo '<h3 class="pRating"';
                         for ($i=0; $i <= $pRating; $i++) { 

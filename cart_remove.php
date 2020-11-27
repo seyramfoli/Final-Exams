@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_POST['add'])){
+if(isset($_POST['remove'])){
     // print_r($_POST['buyId']);
     include_once 'database.php';
     if(isset($_SESSION['sessionId'])){
@@ -14,7 +14,7 @@ if(isset($_POST['add'])){
             print_r($cart_item_id);
     
             if(in_array($_POST['buyId'], $cart_item_id)){
-                echo "<script> alert('This product is already added') </script>";
+                echo "<script> alert('This product is already removed') </script>";
                 echo "<script>window.location= 'index.php'</script>";
             }else{
                 $num= count($_SESSION['cart']);
@@ -36,7 +36,7 @@ if(isset($_POST['add'])){
             // header("Location:index.php?added1stItem");
         }
 
-        $sql="insert into products_customer(productID, customerID) values(?,?);";
+        $sql="delete from  products_customer where productID=? and customerID =?;";
         $stmt= mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql)){
             echo 'sql error4';
@@ -45,14 +45,14 @@ if(isset($_POST['add'])){
         }else{
             mysqli_stmt_bind_param($stmt, "ss", $prodId,$custId);
             mysqli_stmt_execute($stmt);
-            echo "<script> alert('This product has been added') </script>";
-            echo "<script>window.location= 'index.php'</script>";
+            echo "<script> alert('This product has been removed') </script>";
+            echo "<script>window.location= 'checkout.php'</script>";
                 
         }
     }
     else{
         echo '<script>alert("Pls sign in")</script>';
-        echo '<script>window.location.href = "index.php";</script>';
+        echo '<script>window.location.href = "checkout.php";</script>';
         exit();
     }
 

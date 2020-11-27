@@ -138,13 +138,13 @@
                   
                   echo  '<div class="img-blks5 col-sm-12 text-center product row">';
                   echo '<div class = "col-lg-6">';
-                  echo '<form action= "cart_remove.php" method= "post">';
                   echo '<img src="./assets/productImages/'.$pImage .'" />';
-  
+                  
                   echo '</div>';
-                  echo '<div class = "col-lg-6"';
+                  echo '<div class = "col-lg-6">';
+                  echo '<form action= "cart_remove.php" method= "post">';
                   echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
-                  echo '<h3 class="pMainText pName">'.$pName.'</h3>';
+                  echo '<strong class="pMainText pName">'.$pName.'</strong>';
                   echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
                   echo '<h3 class="pRating"';
                   for ($i=0; $i <= $pRating; $i++) { 
@@ -160,14 +160,14 @@
                    }
                   }
                   echo '</h3>';
-                  echo '<button type="button" class="btn btn-success cart-button" onclick="removeCart(this)">Remove from Cart </button>';
+                  echo '<button type="submit" class="btn btn-danger cart-button" name="remove" onclick="removeCart(this)">Remove from Cart </button>';
   
                   echo '</div>';
   
+                  echo '</div>';
+                  
                   echo '</div>';
                   echo '</form>';
-  
-                  echo '</div>';
                 }
               }
 
