@@ -61,11 +61,23 @@
             <!-- <i class="fa fa-user" aria-hidden="true"></i></a> -->
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="checkout.php"><i class="fa fa-shopping-cart" aria-hidden="true"> <span class="cart-figure">0</span></i></a>
+            <a class="nav-link" href="checkout.php"><i class="fa fa-shopping-cart" aria-hidden="true"> 
+            <?php
+                if(isset($_SESSION['cart'])){
+                    $cart_num= count($_SESSION['cart']);
+                    echo '<span class="cart-figure">'.$cart_num.'</span>';
+                }
+                else{
+                    echo '<span class="cart-figure">0</span>';
+                }
+
+            ?>
+            </i></a>
         </li>
         </ul>
     </div>
     </nav>
+
 
     <div class="row">
     <div class="col-sm-6 cart-products">
