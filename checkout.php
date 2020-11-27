@@ -125,7 +125,7 @@
                   echo '<div class="container">';
                   
                   echo  '<div class="img-blks5 col-sm-12 text-center product row">';
-                  echo '<div class = "col-lg-6"';
+                  echo '<div class = "col-lg-6">';
                   echo '<img src="./assets/productImages/'.$pImage .'" />';
   
                   echo '</div>';
