@@ -162,12 +162,17 @@
                   echo '</h3>';
                   echo '<button type="submit" class="btn btn-danger cart-button" name="remove" onclick="removeCart(this)">Remove from Cart </button>';
   
+                  echo '</form>';
+
+                  echo '<br><br><span class="quantity">Qty:</span>';
+                  echo '<button type="button" class="btn bg-light border rounded-circle"><i class="fa fa-minus"></i></button>';
+                  echo '<input type="text" value="1" class="form-control w-25 d-inline">';
+                  echo '<button type="button" class="btn bg-light border rounded-circle"><i class="fa fa-plus"></i></button>';
                   echo '</div>';
   
                   echo '</div>';
                   
                   echo '</div>';
-                  echo '</form>';
                 }
               }
 
@@ -177,6 +182,17 @@
     
     </div>
     <div class="col-sm-6 subtotal">
+      <h6>CHECKOUT DETAILS</h6>
+      <hr>
+      <?php
+        if(isset($_SESSION['cart'])){
+          $item_num=count($_SESSION['cart']);
+          echo '<h6>Price($item_num items)</h6>';
+        }
+        else{
+          echo '<h6>Price(0 items)</h6>';
+        }
+      ?>
         Subtotal: $ <span class="priceTotal"></span>
         <br><br>
         <div class="btn btn-secondary" onclick="window.location.href='payment.php';">Proceed to Payment</div>

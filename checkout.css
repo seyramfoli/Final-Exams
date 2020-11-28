@@ -6,9 +6,12 @@
     max-width: 20%;
     margin-left: 20%;
     margin-right: 10%;
-    margin-bottom: 116%;
+    margin-bottom: 45%;
 }
-
+.quantity{
+    font-size: large;
+    color: white;
+}
 @keyframes color-change{
     0%{
         background: #000;
