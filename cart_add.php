@@ -36,7 +36,7 @@ if(isset($_POST['add'])){
             // header("Location:index.php?added1stItem");
         }
 
-        $sql="insert into products_customer(productID, customerID) values(?,?);";
+        $sql="insert into products_customer(productID, customerID, quantity) values(?,?,1);";
         $stmt= mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql)){
             echo 'sql error4';

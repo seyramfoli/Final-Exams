@@ -169,9 +169,9 @@
                     echo '</form>';
   
                     echo '<br><br><span class="quantity">Qty:</span>';
-                    echo '<button type="button" class="btn bg-light border rounded-circle"><i class="fa fa-minus"></i></button>';
-                    echo '<input type="text" value="1" class="form-control w-25 d-inline">';
-                    echo '<button type="button" class="btn bg-light border rounded-circle"><i class="fa fa-plus"></i></button>';
+                    echo '<button type="button" class="btn bg-light border rounded-circle" onclick="removeQty()"><i class="fa fa-minus"></i></button>';
+                    echo '<input type="text" value="1" class="form-control w-25 d-inline pQty">';
+                    echo '<button type="button" class="btn bg-light border rounded-circle" onclick="addQty()"><i class="fa fa-plus"></i></button>';
                     echo '</div>';
     
                     echo '</div>';
@@ -246,18 +246,25 @@
                     
                 </div>
                 
-            <!-- <script>
+            <script>
+            function addQty(){
             let clickedButtons = document.querySelectorAll(".cart-button");
-            let cartCount = document.querySelector('.cart-figure');
-            let cartCounter = 0;
-            for (let i = 0; i < clickedButtons.length; i++) {
-                clickedButtons[i].addEventListener('click',()=>{
-                    cartCounter++;
-                    cartCount.innerHTML= cartCounter;
-                })
-                
+
             }
-            </script> -->
+            function removeQty(){
+            let clickedButtons = document.querySelectorAll(".cart-button");
+
+            }
+            // let cartCount = document.querySelector('.cart-figure');
+            // let cartCounter = 0;
+            // for (let i = 0; i < clickedButtons.length; i++) {
+            //     clickedButtons[i].addEventListener('click',()=>{
+            //         cartCounter++;
+            //         cartCount.innerHTML= cartCounter;
+            //     })
+                
+            // }
+            </script>
              
             </div>
             <div class="credits text-center mt-2">

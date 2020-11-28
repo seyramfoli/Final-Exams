@@ -37,6 +37,7 @@ create table products_customer(
 prod_custID int not null primary key auto_increment,
 productID int not null,
 customerID int not null,
+quantity int not null,
 foreign key (productID) references products(productID),
 foreign key (customerID) references customers(customerID)
 );
@@ -48,3 +49,8 @@ paymentID int not null,
 foreign key (productID) references products(productID),
 foreign key (paymentID) references payments(paymentID)
 );
+
+use finalexam_84422022;
+insert into products(pName, price, rating, image) values("White Ceramic Frame", 34.99,3, "frames1.jpg"),
+("Nixon T-shirt", 24.99,4, "t-shirt1.jpg"), ("Detriot Heaven Frame", 54.99,2, "frames2.jpg"),
+("Helvitica Frame", 27.99,3, "frames4.jpg"), ("Not Today T-shirt", 29.99,3, "t-shirt2.jpg");
