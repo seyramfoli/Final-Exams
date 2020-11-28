@@ -67,9 +67,146 @@
     </div>
     </nav>
 
+    
+    <div class="row">
+    <div class="col-sm-12 cart-products">
+    <?php
+        if(isset($_SESSION['sessionFname'])){
+            echo '<h1 class="text-center font-weight-bold">';
+            printf("%s's Payment", $_SESSION['sessionFname']);
+            echo '</h1>';
 
+			}else{
+				echo <<<_NOCART
+					<h1 class="text-centerfont-weight-bold ">Your Payment</h1>
+						
+				_NOCART;
 
+						
+        }
 
+        $custId=$_SESSION['sessionId'];
+        // echo $custId;
+        $products=[];
+        $total=0.00;
+        $sql="select productID from products_customer where customerID=".$custId;
+        $stmt= mysqli_stmt_init($conn);
+        // echo 'connection worked';
+        if(!mysqli_stmt_prepare($stmt,$sql)){
+            echo 'sql error1';
+          // header("Location: cust_welcome.php?error=sqlerror0");
+          exit();
+        }else{
+          // mysqli_stmt_bind_param($stmt, "s");
+            mysqli_stmt_execute($stmt);
+            $result= mysqli_stmt_get_result($stmt);
+            while($row=mysqli_fetch_array($result)){
+              array_push($products,$row['productID']);
+            }
+          }
+          
+          foreach($products as $prodId){
+            $sql="select * from products where productID=".$prodId;
+            $stmt= mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt,$sql)){
+             echo 'sql error2';
+               //  header("Location: cust_welcome.php?error=sqlerror2");
+                exit();
+              }else{
+                // mysqli_stmt_bind_param($stmt, "s");
+                mysqli_stmt_execute($stmt);
+                $result= mysqli_stmt_get_result($stmt);
+                if(mysqli_num_rows($result)>0){
+
+                  while($row=mysqli_fetch_array($result)){
+                    if(!empty($row))
+                    $pId=$row['productID'];
+                    $pName=$row['pName'];
+                    $pPrice=$row['price'];
+                    $pRating=$row['rating'];
+                    $pImage=$row['image'];
+                    
+                    echo '<div class="container">';
+                    
+                    echo  '<div class="img-blks5 col-sm-12 text-center product row">';
+                    echo '<div class = "col-lg-6">';
+                    echo '<img src="./assets/productImages/'.$pImage .'" />';
+                    
+                    echo '</div>';
+                    echo '<div class = "col-lg-6">';
+                    echo '<form action= "cart_remove.php" method= "post">';
+                    echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
+                    echo '<strong class="pMainText pName">'.$pName.'</strong>';
+                    echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
+                    $total=$total+(float)$pPrice;
+                    echo '<h3 class="pRating"';
+                    for ($i=0; $i <= $pRating; $i++) { 
+                      # code...
+                     echo "<i class='fa fa-star' aria-hidden='true'></i>";
+     
+                    }
+                    if ($pRating< 5) {
+                      # code...
+                     for($i=0; $i < 5-$pRating; $i++){
+                       echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+     
+                     }
+                    }
+                    echo '</h3>';
+                    // echo '<button type="submit" class="btn btn-danger cart-button" name="remove" onclick="removeCart(this)">Remove from Cart </button>';
+    
+                    echo '</form>';
+  
+                    // echo '<br><br><span class="quantity">Qty:</span>';
+                    // echo '<button type="button" class="btn bg-light border rounded-circle" onclick="removeQty()"><i class="fa fa-minus"></i></button>';
+                    // echo '<input type="text" value="1" class="form-control w-25 d-inline pQty">';
+                    // echo '<button type="button" class="btn bg-light border rounded-circle" onclick="addQty()"><i class="fa fa-plus"></i></button>';
+                    echo '</div>';
+    
+                    echo '</div>';
+                    
+                    echo '</div>';
+                  }
+                }else{
+                  // fix: not displaying
+                  echo '<div class="container">';
+                  echo 'The cart is empty';
+                  echo '</div>';
+                }
+              }
+
+          }
+          
+	?> 
+    </div>
+    
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-12 cart-payment">
+        <?php
+            if(isset($_SESSION['cart'])){
+            $item_num=count($_SESSION['cart']);
+            echo '<h6>Wishlist ('.$item_num .' items)</h6>';
+            }
+            else{
+            echo '<h6>Price(0 items)</h6>';
+            }
+        ?>
+        <h6>Delivery Charges: FREE</h6>
+        <hr>
+            Subtotal: $ <?php echo $total; ?>
+            <br><br>
+            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+            <input type="text" value="xxx-xxxx-xxxx" class="form-control w-25 d-inline pQty">
+            <input type="text" value="xx/xx" class="form-control w-25 d-inline pQty">
+            <div class="btn btn-success" onclick="window.location.href='orders.php';">Buy <i class="fa fa-money" aria-hidden="true"></i></div>
+        </div>
+        
+        </div>
+    
+    </div>
 
      <!-- footer -->
  <footer class="pt-5 pb-3 ">
