@@ -99,6 +99,7 @@
         $custId=$_SESSION['sessionId'];
         // echo $custId;
         $products=[];
+        $total=0.00;
         $sql="select productID from products_customer where customerID=".$custId;
         $stmt= mysqli_stmt_init($conn);
         // echo 'connection worked';
@@ -126,52 +127,61 @@
                 // mysqli_stmt_bind_param($stmt, "s");
                 mysqli_stmt_execute($stmt);
                 $result= mysqli_stmt_get_result($stmt);
-                while($row=mysqli_fetch_array($result)){
-                  if(!empty($row))
-                  $pId=$row['productID'];
-                  $pName=$row['pName'];
-                  $pPrice=$row['price'];
-                  $pRating=$row['rating'];
-                  $pImage=$row['image'];
-                  
-                  echo '<div class="container">';
-                  
-                  echo  '<div class="img-blks5 col-sm-12 text-center product row">';
-                  echo '<div class = "col-lg-6">';
-                  echo '<img src="./assets/productImages/'.$pImage .'" />';
-                  
-                  echo '</div>';
-                  echo '<div class = "col-lg-6">';
-                  echo '<form action= "cart_remove.php" method= "post">';
-                  echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
-                  echo '<strong class="pMainText pName">'.$pName.'</strong>';
-                  echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
-                  echo '<h3 class="pRating"';
-                  for ($i=0; $i <= $pRating; $i++) { 
-                    # code...
-                   echo "<i class='fa fa-star' aria-hidden='true'></i>";
-   
-                  }
-                  if ($pRating< 5) {
-                    # code...
-                   for($i=0; $i < 5-$pRating; $i++){
-                     echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
-   
-                   }
-                  }
-                  echo '</h3>';
-                  echo '<button type="submit" class="btn btn-danger cart-button" name="remove" onclick="removeCart(this)">Remove from Cart </button>';
-  
-                  echo '</form>';
+                if(mysqli_num_rows($result)>0){
 
-                  echo '<br><br><span class="quantity">Qty:</span>';
-                  echo '<button type="button" class="btn bg-light border rounded-circle"><i class="fa fa-minus"></i></button>';
-                  echo '<input type="text" value="1" class="form-control w-25 d-inline">';
-                  echo '<button type="button" class="btn bg-light border rounded-circle"><i class="fa fa-plus"></i></button>';
-                  echo '</div>';
+                  while($row=mysqli_fetch_array($result)){
+                    if(!empty($row))
+                    $pId=$row['productID'];
+                    $pName=$row['pName'];
+                    $pPrice=$row['price'];
+                    $pRating=$row['rating'];
+                    $pImage=$row['image'];
+                    
+                    echo '<div class="container">';
+                    
+                    echo  '<div class="img-blks5 col-sm-12 text-center product row">';
+                    echo '<div class = "col-lg-6">';
+                    echo '<img src="./assets/productImages/'.$pImage .'" />';
+                    
+                    echo '</div>';
+                    echo '<div class = "col-lg-6">';
+                    echo '<form action= "cart_remove.php" method= "post">';
+                    echo '<input type="hidden" name="buyId" value="'.$pId.'"></input>';
+                    echo '<strong class="pMainText pName">'.$pName.'</strong>';
+                    echo '<h3 class="pMainText pPrice">$'.$pPrice.'</h3>';
+                    $total=$total+(float)$pPrice;
+                    echo '<h3 class="pRating"';
+                    for ($i=0; $i <= $pRating; $i++) { 
+                      # code...
+                     echo "<i class='fa fa-star' aria-hidden='true'></i>";
+     
+                    }
+                    if ($pRating< 5) {
+                      # code...
+                     for($i=0; $i < 5-$pRating; $i++){
+                       echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+     
+                     }
+                    }
+                    echo '</h3>';
+                    echo '<button type="submit" class="btn btn-danger cart-button" name="remove" onclick="removeCart(this)">Remove from Cart </button>';
+    
+                    echo '</form>';
   
-                  echo '</div>';
-                  
+                    echo '<br><br><span class="quantity">Qty:</span>';
+                    echo '<button type="button" class="btn bg-light border rounded-circle"><i class="fa fa-minus"></i></button>';
+                    echo '<input type="text" value="1" class="form-control w-25 d-inline">';
+                    echo '<button type="button" class="btn bg-light border rounded-circle"><i class="fa fa-plus"></i></button>';
+                    echo '</div>';
+    
+                    echo '</div>';
+                    
+                    echo '</div>';
+                  }
+                }else{
+                  // fix: not displaying
+                  echo '<div class="container">';
+                  echo 'The cart is empty';
                   echo '</div>';
                 }
               }
@@ -187,13 +197,15 @@
       <?php
         if(isset($_SESSION['cart'])){
           $item_num=count($_SESSION['cart']);
-          echo '<h6>Price($item_num items)</h6>';
+          echo '<h6>Wishlist ('.$item_num .' items)</h6>';
         }
         else{
           echo '<h6>Price(0 items)</h6>';
         }
       ?>
-        Subtotal: $ <span class="priceTotal"></span>
+      <h6>Delivery Charges: FREE</h6>
+      <hr>
+        Subtotal: $ <?php echo $total; ?>
         <br><br>
         <div class="btn btn-secondary" onclick="window.location.href='payment.php';">Proceed to Payment</div>
     </div>

@@ -7,35 +7,13 @@ if(isset($_POST['remove'])){
         $custId=$_SESSION['sessionId'];
         $prodId=$_POST['buyId'];
         
-        if(isset($_SESSION['cart'])){
-            $cart_item_id= array_column($_SESSION['cart'], "buyId");
-            echo 'it worked';
-            $_SESSION['item_id']=$cart_item_id;
-            print_r($cart_item_id);
-    
-            if(in_array($_POST['buyId'], $cart_item_id)){
-                echo "<script> alert('This product is already removed') </script>";
-                echo "<script>window.location= 'index.php'</script>";
-            }else{
-                $num= count($_SESSION['cart']);
-                $item_array=array(
-                    'buyId'=> $_POST['buyId']
-                );
-                $_SESSION['cart'][$num]= $item_array;
-                print_r($_SESSION['cart']);
+     
+     
+        foreach($_SESSION['cart'] as $key=>$value){
+            if($value['buyId']==$_POST['buyId']){
+                unset($_SESSION['cart'][$key]);
             }
-            // header("Location:index.php?added".$cart_item_id);
-        }else{
-            $item_array=array(
-    
-                'buyId'=> $_POST['buyId']
-            );
-            //Create new session variable
-            $_SESSION['cart'][0]=$item_array;
-            print_r($_SESSION['cart']);
-            // header("Location:index.php?added1stItem");
         }
-
         $sql="delete from  products_customer where productID=? and customerID =?;";
         $stmt= mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql)){
