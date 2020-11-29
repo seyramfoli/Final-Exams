@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="payment.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -279,6 +280,7 @@
         </div>
     </footer>
     <script src="https://js.stripe.com/v3/"></script>
+    <script src="payment.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="bootstrap.min.js"></script>
 </body>
