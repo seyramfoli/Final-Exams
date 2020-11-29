@@ -206,9 +206,7 @@
 
             <form action="./charge.php" method="post" id="payment-form">
               <div class="form-row">
-                <label for="card-element">
-                  Credit or debit card
-                </label>
+                
                 <br>
                 <div style="width: 30em" #stripecardelement id="card-element">
                   <!-- A Stripe Element will be inserted here. -->
