@@ -197,7 +197,7 @@
         ?>
         <h6>Delivery Charges: FREE</h6>
         <hr>
-            Subtotal: $ <?php echo $total; ?>
+            Subtotal: $ <?php echo $total; $_SESSION['totalAmt']=$total?>
             <br><br>
             <!-- <i class="fa fa-credit-card-alt" aria-hidden="true"></i> -->
             <!-- <input type="text" value="xxx-xxxx-xxxx" class="form-control w-25 d-inline pQty">
