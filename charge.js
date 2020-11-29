@@ -23,6 +23,10 @@ var style = {
   }
 };
 
+document
+  .querySelector('#payment-form button')
+  .classList ='btn btn-success btn-block mt-4';
+
 // Create an instance of the card Element.
 var card = elements.create('card', {style: style});
 
@@ -39,7 +43,7 @@ card.on('change', function(event) {
 });
 
 // Handle form submission.
-var form = document.getElementById('payment-form');
+var form = document.querySelector('#payment-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 

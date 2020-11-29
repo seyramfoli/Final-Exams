@@ -204,17 +204,18 @@
             <input type="text" value="xx/xx" class="form-control w-25 d-inline pQty">
             <div class="btn btn-success" onclick="window.location.href='orders.php';">Buy <i class="fa fa-money" aria-hidden="true"></i></div> -->
 
-            <form action="/charge" method="post" id="payment-form">
+            <form action="./charge.php" method="post" id="payment-form">
               <div class="form-row">
                 <label for="card-element">
                   Credit or debit card
                 </label>
-                <div id="card-element">
+                <br>
+                <div style="width: 30em" #stripecardelement id="card-element">
                   <!-- A Stripe Element will be inserted here. -->
                 </div>
 
                 <!-- Used to display form errors. -->
-                <div id="card-errors" role="alert"></div>
+                <div style="width: 30em; height: 2em; letter-spacing: 0em" id="card-errors" role="alert"></div>
               </div>
 
               <button>Submit Payment</button>
@@ -280,7 +281,7 @@
         </div>
     </footer>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="payment.js"></script>
+    <script type="text/javascript" src="./charge.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="bootstrap.min.js"></script>
 </body>
