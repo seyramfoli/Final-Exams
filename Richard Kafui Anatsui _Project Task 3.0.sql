@@ -46,6 +46,7 @@ create table products_payments(
 prod_payID int not null primary key auto_increment,
 productID int not null,
 paymentID int not null,
+quantity int not null,
 foreign key (productID) references products(productID),
 foreign key (paymentID) references payments(paymentID)
 );
