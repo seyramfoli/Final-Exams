@@ -36,19 +36,50 @@ $charge= \Stripe\Charge::create(array(
 print_r($customer);
 $currentTime= date("Y-m-d H:i:s");
 $sql = "insert into orders(orderTime, customerID) values(?,?)";
-        $stmt= mysqli_stmt_init($conn);
-        if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: payment.php?error=sqlerror0");
-            exit();
+$stmt= mysqli_stmt_init($conn);
+if(!mysqli_stmt_prepare($stmt, $sql)){
+    header("Location: payment.php?error=sqlerror0");
+    exit();
+}else{
+    mysqli_stmt_bind_param($stmt, "ss", $currentTime,$custId);
+    mysqli_stmt_execute($stmt);
+    // header("Location: orders.php?success=purchased");
+    // exit();
+}
 
-        }else{
-            mysqli_stmt_bind_param($stmt, "ss", $currentTime,$custId);
-            mysqli_stmt_execute($stmt);
-            header("Location: orders.php?success=purchased");
-            exit();
-                
-            
-        }
+
+$sql="select orderID from orders where orderTime=? and customerID=?";
+$stmt= mysqli_stmt_init($conn);
+if(!mysqli_stmt_prepare($stmt,$sql)){
+
+    header("Location: signIn.php?error=sqlerror1");
+    exit();
+}else{
+    mysqli_stmt_bind_param($stmt, "ss", $currentTime,$custId);
+    mysqli_stmt_execute($stmt);
+    $result= mysqli_stmt_get_result($stmt);
+    if($row=mysqli_fetch_assoc($result)){
+        $oID=$row['orderID'];
+        // header("Location: orders.php?success+oidAcquired");
+        // exit();
+    }else{
+
+        header("Location: payment.php?error=nonexistenceId");
+        exit();
+    }
+}
+
+$sql = "insert into payments(accountDetails, customerID, orderID) values(?,?,?)";
+$stmt= mysqli_stmt_init($conn);
+if(!mysqli_stmt_prepare($stmt, $sql)){
+    header("Location: payment.php?error=sqlerror2");
+    exit();
+}else{
+    mysqli_stmt_bind_param($stmt, "sss", $charge->last4,$custId,$oID);
+    mysqli_stmt_execute($stmt);
+    header("Location: orders.php?success=paymentAdded");
+    exit();
+}
 // //Redirect to success
 // unset($_SESSION['totalAmt']);
 // header('Location: orders.php?tid='.$charge->id.'&product='.$charge->description)
