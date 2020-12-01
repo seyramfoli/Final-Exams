@@ -87,10 +87,80 @@ if(!mysqli_stmt_prepare($stmt, $sql)){
 }else{
     mysqli_stmt_bind_param($stmt, "sss", $charge->id,$custId,$oID);
     mysqli_stmt_execute($stmt);
-    header("Location: orders.php?success=paymentAdded");
-    exit();
+    // header("Location: orders.php?success=paymentAdded");
+    // exit();
 }
+
+$products=[];
+$quants=[];
+$sql="select productID,quantity from products_customer where customerID=?";
+$stmt= mysqli_stmt_init($conn);
+if(!mysqli_stmt_prepare($stmt,$sql)){
+
+    header("Location: payment.php?error=sqlerror3");
+    exit();
+}else{
+    mysqli_stmt_bind_param($stmt, "s", $custId);
+    mysqli_stmt_execute($stmt);
+    $result= mysqli_stmt_get_result($stmt);
+    while($row=mysqli_fetch_array($result)){
+        array_push($products,$row['productID']);
+        array_push($quants,$row['quantity']);
+    }
+     // exit();
+    
+}
+$sql="select paymentID from payments where accountDetails=? and customerID=?";
+$stmt= mysqli_stmt_init($conn);
+if(!mysqli_stmt_prepare($stmt,$sql)){
+
+    header("Location: payment.php?error=sqlerror4");
+    exit();
+}else{
+    mysqli_stmt_bind_param($stmt, "ss", $charge->id, $custId);
+    mysqli_stmt_execute($stmt);
+    $result= mysqli_stmt_get_result($stmt);
+    if($row=mysqli_fetch_assoc($result)){
+        $payID=$row['paymentID'];
+        // header("Location: orders.php?success+oidAcquired");
+        // exit();
+    }else{
+
+        // header("Location: payment.php?error=nonexistenceId");
+        // exit();
+    }
+}
+
+// print_r($products);
+foreach ($products as $index=>$prodID) {
+    # code...
+    $sql = "insert into products_payments(productID, paymentID, quantity) values(?,?,?)";
+    $stmt= mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("Location: payment.php?error=sqlerror5");
+        exit();
+    }else{
+        mysqli_stmt_bind_param($stmt, "sss", $prodID,$payID,$quants[$index]);
+        mysqli_stmt_execute($stmt);
+        // header("Location: orders.php?success=paymentAdded");
+        // exit();
+    }
+}
+
+$sql="delete from  products_customer where customerID =?;";
+$stmt= mysqli_stmt_init($conn);
+if(!mysqli_stmt_prepare($stmt,$sql)){
+    echo 'sql error6';
+    // header("Location: sell_welcome.php?error=sqlerror1");
+    exit();
+}else{
+    mysqli_stmt_bind_param($stmt, "s", $custId);
+    mysqli_stmt_execute($stmt);
+    
+        
+}
+
 // //Redirect to success
-// unset($_SESSION['totalAmt']);
-// header('Location: orders.php?tid='.$charge->id.'&product='.$charge->description)
+unset($_SESSION['totalAmt']);
+header('Location: orders.php?tid='.$charge->id.'&product='.$charge->description)
 ?>
