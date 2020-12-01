@@ -33,8 +33,18 @@ $charge= \Stripe\Charge::create(array(
 
 ));
 
-print_r($customer);
-$currentTime= date("Y-m-d H:i:s");
+// echo '<br><br>';
+// print_r($customer);
+// echo '<br><br>';
+// print_r($charge);
+// echo '<br><br>';
+
+// echo $charge->last4;
+// echo $charge->status;
+date_default_timezone_set('GMT');
+$currentTime= date("Y-m-d H:i:s", time());
+echo $currentTime;
+
 $sql = "insert into orders(orderTime, customerID) values(?,?)";
 $stmt= mysqli_stmt_init($conn);
 if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -64,8 +74,8 @@ if(!mysqli_stmt_prepare($stmt,$sql)){
         // exit();
     }else{
 
-        header("Location: payment.php?error=nonexistenceId");
-        exit();
+        // header("Location: payment.php?error=nonexistenceId");
+        // exit();
     }
 }
 
@@ -75,7 +85,7 @@ if(!mysqli_stmt_prepare($stmt, $sql)){
     header("Location: payment.php?error=sqlerror2");
     exit();
 }else{
-    mysqli_stmt_bind_param($stmt, "sss", $charge->last4,$custId,$oID);
+    mysqli_stmt_bind_param($stmt, "sss", $charge->id,$custId,$oID);
     mysqli_stmt_execute($stmt);
     header("Location: orders.php?success=paymentAdded");
     exit();
