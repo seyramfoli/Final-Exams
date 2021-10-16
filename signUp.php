@@ -64,12 +64,12 @@
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
                 <div class="form-group">
-                    <label for="pswd">Password</label>
-                    <input type="password" class="form-control" id="pswd" name="pswd">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="form-group">
-                    <label for="confirmPswd">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPswd" name="confirmPswd">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPswd" name="confirmPassword">
                 </div>
                 
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
