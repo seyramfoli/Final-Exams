@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group">
                     <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPswd" name="confirmPassword">
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
                 </div>
                 
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
