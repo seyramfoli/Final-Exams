@@ -84,7 +84,7 @@
      <footer class="pt-5 pb-3 ">
         
             <div class="credits text-center mt-2">
-                <p>Made by Richard Kafui Anatsui &copy; 2020. All rights reserved.</p>
+                <p>Made by Team Flex Point &copy; 2020. All rights reserved.</p>
             </div>
         </div>
     </footer>
