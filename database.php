@@ -6,7 +6,7 @@ $dbUser= 'root';
 $dbPass = '';
 $dbName = 'finalexam_84422022';
 
-//connection to databse
+//connection to database
 $conn = mysqli_connect($dbHost,$dbUser, $dbPass,$dbName);
 
 if($conn){
