@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adleks Studio</title>
+    <title>Watch360</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="checkout.css">
@@ -16,7 +16,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between ">
-    <a class="navbar-brand" href="index.php">Adleks Studio</a>
+    <a class="navbar-brand" href="index.php">Watch360</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,7 +39,7 @@
             <!-- <a class="nav-link" href="signIn.php"> -->
             <?php
 					if(isset($_SESSION['sessionFname'])&&isset($_SESSION['sessionLname'])){
-						printf('Akwaaba, %s %s', $_SESSION['sessionFname'], $_SESSION['sessionLname']);
+						printf('Welcome, %s %s', $_SESSION['sessionFname'], $_SESSION['sessionLname']);
 						echo <<<_SIGNOUTITEM
 							<a id="sign-in" class="nav-link" href="logout.php">
 								Sign Out 
@@ -149,7 +149,7 @@
              
             </div>
             <div class="credits text-center mt-2">
-                <p>Made by Richard Kafui Anatsui &copy; 2020. All rights reserved.</p>
+                <p>Made by Team Flex-Point &copy; 2021. All rights reserved.</p>
             </div>
         </div>
     </footer>
