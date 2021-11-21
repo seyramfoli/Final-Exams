@@ -12,7 +12,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between ">
-    <a class="navbar-brand" href="#">Adleks Studio</a>
+    <a class="navbar-brand" href="#">Watch360</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -73,7 +73,7 @@
      <!-- footer -->
      <footer class="pt-5 pb-3 ">
            <div class="credits text-center mt-2">
-                <p>Made by Richard Kafui Anatsui &copy; 2020. All rights reserved.</p>
+                <p>Made by Team Flex-Point &copy; 2021. All rights reserved.</p>
             </div>
         </div>
     </footer>
