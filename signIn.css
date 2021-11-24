@@ -3,23 +3,26 @@ img {
     max-width: 100%;
     /* width: 600px; */
     height: auto;
-  }
-.navbar{
+}
+
+.navbar {
     margin-bottom: 20%;
 }
-form{
+
+form {
     margin-bottom: 20%;
 }
-.sign-in{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(30,121,9,1) 0%, rgba(7,115,41,1) 1%, rgba(96,70,52,1) 100%, rgba(0,212,255,1) 100%); 
+
+.sign-in {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(30, 121, 9, 1) 0%, rgba(7, 115, 41, 1) 1%, rgba(96, 70, 52, 1) 100%, rgba(0, 212, 255, 1) 100%);
     padding: 30px;
     color: aquamarine;
     border-radius: 5%;
     border: 1px solid white;
 }
 
-body{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(30,121,9,1) 0%, rgba(7,115,41,1) 1%, rgba(96,70,52,1) 100%, rgba(0,212,255,1) 100%); 
+body {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgb(255, 255, 255) 0%, rgba(7, 115, 41, 1) 1%, rgba(96, 70, 52, 1) 100%, rgba(0, 212, 255, 1) 100%);
 }
