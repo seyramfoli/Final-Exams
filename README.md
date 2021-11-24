@@ -1,4 +1,5 @@
 # Final-Exams
+to download the files onto your pc, click on code and click download zip
 //running using xampp
 Download xampp and run download the files in htdocs in the campp folder usually found in the windows C:/xampp/htdocs
 when the xampp interface is open, start Apache, MYSQL, FileZilla and Mercury.
