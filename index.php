@@ -210,7 +210,7 @@
                                 <a class="nav-link  mx-1" href="#"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link mx-1" href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+                                <a class="nav-link mx-1" href="https://instagram.com/han_watches?r=nametag"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
                               </li>
 
                            </div>
