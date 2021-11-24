@@ -43,7 +43,7 @@
 
     <div class="container sign-in">
         <div class="row">
-            <div class="img-blks5 col-sm-6">
+            <div class="img-blks5 col-sm-10">
                 <img  class= "thumbnail" src="./assets/signup3.jpg" alt="">
             </div>
             <div class="col-sm-6">
