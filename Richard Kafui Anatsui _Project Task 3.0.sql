@@ -52,8 +52,8 @@ foreign key (paymentID) references payments(paymentID)
 );
 
 use finalexam_84422022;
-insert into products(pName, price, rating, image) values("Louis Moinet Blue Strap", 34.99,3, "watch1.jpg"),
-("Omega De Ville Co-Axial Chronometer", 24.99,4, "watch2.jpg"), (" Louis Moinet Blue Strap", 54.99,2, "watch3.jpg"),
-("S-Force Strength Overcomes", 27.99,3, "watch4.jpg"), ("Michael Kors Brown Leather Strap Watch", 29.99,3, "watch5.jpg"),
-("Rolex Oyster Perpetual Cosmograph Daytona", 99.99,3, "watch6.jpg"), ("Casio Alarm Chronograph Watch Silver", 20.99,2, "watch7.jpg"),
-("Casio Alarm Chronograph Vintage Silver", 19.99,2, "watch8.jpg");
+insert into products(pName, price, rating, image) values("Louis Moinet Blue Strap", 34.99, 3, "watch1.jpg"),
+("Omega De Ville Co-Axial Chronometer", 24.99, 4, "watch2.jpg"), (" Louis Moinet Blue Strap", 54.99, 2, "watch3.jpg"),
+("S-Force Strength Overcomes", 27.99, 3, "watch4.jpg"), ("Michael Kors Brown Leather Strap Watch", 29.99, 3, "watch5.jpg"),
+("Rolex Oyster Perpetual Cosmograph Daytona", 99.99, 3, "watch6.jpg"), ("Casio Alarm Chronograph Watch Silver", 20.99, 2, "watch7.jpg"),
+("Casio Alarm Chronograph Vintage Silver", 19.99, 2, "watch8.jpg");
